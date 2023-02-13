@@ -1,5 +1,5 @@
 import * as fromTheScoreboardReducer from './scoreboard-the-scoreboard.reducer'
-import {ActionReducerMap} from '@ngrx/store';
+import {ActionReducerMap, createFeatureSelector, createSelector} from '@ngrx/store';
 
 export const scoreBoardFeatureKey = 'scoreboard'
 
@@ -10,3 +10,8 @@ export interface ScoreboardState {
 export const reducers: ActionReducerMap<ScoreboardState> = {
   [fromTheScoreboardReducer.theScoreboardFeatureKey]: fromTheScoreboardReducer.theScoreboardReducer
 }
+
+
+export const getScoreboardState = createFeatureSelector<ScoreboardState>(scoreBoardFeatureKey);
+export const getTheScoreboardState = createSelector(getScoreboardState, state => state[fromTheScoreboardReducer.theScoreboardFeatureKey]);
+
