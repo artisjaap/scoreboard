@@ -1,0 +1,10 @@
+<div *ngIf="dartPlayer$ | async as dartPlayer">
+
+  <div *ngFor="let score of dartPlayer.score ">
+    <span class="score">{{score.newScore}}</span>
+    <span class="dart" *ngFor="let d of score.darts">{{d}}</span>
+    <span class="visit-score" *ngIf="score.visitScore > 0">{{score.visitScore===0?'no score':score.visitScore}}</span>
+
+  </div>
+
+</div>

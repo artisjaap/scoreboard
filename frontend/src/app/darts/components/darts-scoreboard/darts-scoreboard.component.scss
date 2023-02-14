@@ -1,0 +1,14 @@
+:host {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.game {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.history {
+  display: flex;
+  flex-flow: row nowrap;
+}
