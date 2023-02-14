@@ -5,7 +5,7 @@ import {TheScoreboardState} from '../../store/snooker-scoreboard-the-scoreboard.
 import {getScoreboardState, ScoreboardState} from '../../store/snooker-scoreboard.reducer';
 import {Observable} from 'rxjs';
 import {ScoreboardMode, TableStats} from '../../model/model';
-import {getTableStats} from '../../store/snooker-scoreboard-the-scoreboard.selector';
+import {getMode, getTableStats} from '../../store/snooker-scoreboard-the-scoreboard.selector';
 
 
 @Component({
@@ -16,8 +16,10 @@ import {getTableStats} from '../../store/snooker-scoreboard-the-scoreboard.selec
 export class SnookerControlsComponent {
 
   public scoreboardStats$: Observable<TableStats>;
+  public gameMode$: Observable<ScoreboardMode>;
   constructor(private state: Store<TheScoreboardState>) {
     this.scoreboardStats$ = this.state.select(getTableStats);
+    this.gameMode$ = this.state.select(getMode);
   }
 
   switchPlayer() {
@@ -80,4 +82,6 @@ export class SnookerControlsComponent {
     this.state.dispatch(scoreboardActions.setMode({mode:ScoreboardMode.BALLS_LEFT_CORRECTION}));
 
   }
+
+  protected readonly ScoreboardMode = ScoreboardMode;
 }

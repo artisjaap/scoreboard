@@ -18,17 +18,30 @@
     font-size: 2em;
     text-align: center;
 
-    &.current {
-      color: crimson;
-    }
+
   }
 
   .score {
-    font-size: 10em;
+    font-size: 28em;
     text-align: center;
   }
 
   .break {
     text-align: center;
+    font-size: 2em;
   }
+
+  .current {
+    color: dodgerblue;
+  }
+
+  .fault {
+    color: deeppink;
+  }
+}
+
+.stats {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
 }

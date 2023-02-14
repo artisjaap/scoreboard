@@ -41,7 +41,7 @@ export const theScoreboardInitialState: TheScoreboardState = {
     currentPlayer: true
   },
   player2: {
-    name: 'Player 1',
+    name: 'Player 2',
     framesWon: 0,
     break: 0,
     highestBreak: 0,
@@ -88,9 +88,9 @@ function updateScoreForPlayer(mode: ScoreboardMode, player: PlayerStats, points:
   else if(mode === ScoreboardMode.FAULT){
     return {
       ...player,
-      score: !player.currentPlayer? player.score + points: player.score,
+      score: !player.currentPlayer? player.score + Math.max(4, points): player.score,
       break: 0,
-
+      currentPlayer: !player.currentPlayer
     }
   }
   else if(mode === ScoreboardMode.POSITIVE_CORRECTION){
@@ -133,12 +133,12 @@ function updateTableStats(mode: ScoreboardMode, tableStats: TableStats, color: B
     return {
       ...tableStats,
       red: color === BallColor.RED && tableStats.red > 0 ? tableStats.red - 1: 15,
-      yellow: color === BallColor.YELLOW && tableStats.yellow === 0 ? 1:0,
-      green: color === BallColor.GREEN && tableStats.green === 0 ? 1:0,
-      brown: color === BallColor.BROWN && tableStats.brown === 0 ? 1:0,
-      blue: color === BallColor.BLUE && tableStats.blue === 0 ? 1:0,
-      pink: color === BallColor.PINK && tableStats.pink === 0 ? 1:0,
-      black: color === BallColor.BLACK && tableStats.black === 0 ? 1:0
+      yellow: color === BallColor.YELLOW?tableStats.yellow === 0?1:0:tableStats.yellow,
+      green: color === BallColor.GREEN?tableStats.green === 0?1:0:tableStats.green,
+      brown: color === BallColor.BROWN?tableStats.brown === 0?1:0:tableStats.brown,
+      blue: color === BallColor.BLUE?tableStats.blue === 0?1:0:tableStats.blue,
+      pink: color === BallColor.PINK?tableStats.pink === 0?1:0:tableStats.pink,
+      black: color === BallColor.BLACK?tableStats.black === 0?1:0:tableStats.black
     };
    } else {
     return {...tableStats}
@@ -208,12 +208,13 @@ const createTheScoreboardReducer = createReducer(
     ...state,
     mode:  state.mode === ScoreboardMode.FAULT? ScoreboardMode.NORMAL: state.mode,
     player1: updateScoreForPlayer(state.mode, state.player1, 7, state.tableStats.black),
-    player2: updateScoreForPlayer(state.mode, state.player1, 7, state.tableStats.black),
+    player2: updateScoreForPlayer(state.mode, state.player2, 7, state.tableStats.black),
     tableStats: updateTableStats(state.mode, state.tableStats, BallColor.BLACK)
   })),
   on(potWhite, (state: TheScoreboardState) => ({
     ...state,
-    mode: ScoreboardMode.FAULT
+    mode: ScoreboardMode.FAULT,
+
   })),
   on(restart, (state: TheScoreboardState) => ({
     ...theScoreboardInitialState

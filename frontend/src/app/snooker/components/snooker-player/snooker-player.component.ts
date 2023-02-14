@@ -1,6 +1,9 @@
 import {Component, Input} from '@angular/core';
-import {PlayerStats} from '../../model/model';
+import {PlayerStats, ScoreboardMode} from '../../model/model';
 import {Observable} from 'rxjs';
+import {Store} from '@ngrx/store';
+import {getMode} from '../../store/snooker-scoreboard-the-scoreboard.selector';
+import {TheScoreboardState} from '../../store/snooker-scoreboard-the-scoreboard.reducer';
 
 @Component({
   selector: 'app-player',
@@ -12,6 +15,10 @@ export class SnookerPlayerComponent {
   @Input()
   public player$!: Observable<PlayerStats>
 
+  public gameMode$: Observable<ScoreboardMode>;
+  constructor(private store:Store<TheScoreboardState>) {
+    this.gameMode$ = this.store.select(getMode);
+  }
 
-
+  protected readonly ScoreboardMode = ScoreboardMode;
 }
