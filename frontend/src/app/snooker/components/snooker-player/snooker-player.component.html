@@ -1,0 +1,7 @@
+<div class="player" *ngIf="player$ | async as player">
+  <div class="name" [ngClass]="{'current':player.currentPlayer}">{{player.name}}</div>
+  <div class="score">{{player.score}}</div>
+  <div class="break">Break: {{player.break}}</div>
+  <div class="highestbreak">Highest Break: {{player.highestBreak}}</div>
+  <div class="frames">Frames Won: {{player.framesWon}}</div>
+</div>

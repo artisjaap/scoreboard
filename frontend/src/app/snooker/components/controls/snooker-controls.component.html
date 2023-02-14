@@ -1,0 +1,24 @@
+<div *ngIf="scoreboardStats$ | async as stats">
+
+
+  <button mat-stroked-button color="primary" (click)="switchPlayer()">Switch Player</button>
+  <button mat-stroked-button color="primary" (click)="potRed()">Pot red ({{stats.red}})</button>
+  <button mat-stroked-button color="primary" (click)="potYellow()">Pot yellow ({{stats.yellow}})</button>
+  <button mat-stroked-button color="primary" (click)="potGreen()">Pot green ({{stats.green}})</button>
+  <button mat-stroked-button color="primary" (click)="potBrown()">Pot brown ({{stats.brown}})</button>
+  <button mat-stroked-button color="primary" (click)="potBlue()">Pot blue ({{stats.blue}})</button>
+  <button mat-stroked-button color="primary" (click)="potPink()">Pot pink ({{stats.pink}})</button>
+  <button mat-stroked-button color="primary" (click)="potBlack()">Pot Black ({{stats.black}})</button>
+  <button mat-stroked-button color="primary" (click)="potWhite()">Pot White</button>
+  <button mat-stroked-button color="primary" (click)="reset()">Reset</button>
+  <button mat-stroked-button color="primary" (click)="newGame()">New Game</button>
+
+  <button mat-stroked-button color="primary" (click)="normalMode()">Normal Mode</button>
+  <button mat-stroked-button color="primary" (click)="positiveCorrectionMode()">Correction +</button>
+  <button mat-stroked-button color="primary" (click)="negativeCorrectionMode()">Correction -</button>
+  <button mat-stroked-button color="primary" (click)="changeNumberOfBallsMode()">Change # Balls</button>
+
+
+</div>
+
+

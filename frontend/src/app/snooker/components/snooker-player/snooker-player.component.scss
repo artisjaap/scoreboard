@@ -1,0 +1,34 @@
+:host {
+  flex: 1
+}
+
+.player {
+  display: flex;
+  flex-flow: column nowrap;
+  flex: 1;
+
+  border: 2px solid midnightblue;
+  border-radius: 15px;
+  margin: 20px;
+  padding: 20px;
+
+  align-content: center;
+
+  .name {
+    font-size: 2em;
+    text-align: center;
+
+    &.current {
+      color: crimson;
+    }
+  }
+
+  .score {
+    font-size: 10em;
+    text-align: center;
+  }
+
+  .break {
+    text-align: center;
+  }
+}

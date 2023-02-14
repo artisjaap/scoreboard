@@ -1,16 +1,16 @@
 import {Component} from '@angular/core';
-import {TheScoreboardState} from '../../store/scoreboard-the-scoreboard.reducer';
+import {TheScoreboardState} from '../../store/snooker-scoreboard-the-scoreboard.reducer';
 import {Store} from '@ngrx/store';
 import {Observable} from 'rxjs';
 import {PlayerStats} from '../../model/model';
-import {getPlayer1, getPlayer2} from '../../store/scoreboard-the-scoreboard.selector';
+import {getPlayer1, getPlayer2} from '../../store/snooker-scoreboard-the-scoreboard.selector';
 
 @Component({
   selector: 'app-scoreboard',
-  templateUrl: './scoreboard.component.html',
-  styleUrls: ['./scoreboard.component.scss']
+  templateUrl: './snooker-scoreboard.component.html',
+  styleUrls: ['./snooker-scoreboard.component.scss']
 })
-export class ScoreboardComponent {
+export class SnookerScoreboardComponent {
 
 
   public player1$: Observable<PlayerStats>;

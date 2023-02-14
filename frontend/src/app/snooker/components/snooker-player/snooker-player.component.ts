@@ -4,12 +4,14 @@ import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-player',
-  templateUrl: './player.component.html',
-  styleUrls: ['./player.component.scss']
+  templateUrl: './snooker-player.component.html',
+  styleUrls: ['./snooker-player.component.scss']
 })
-export class PlayerComponent {
+export class SnookerPlayerComponent {
 
   @Input()
   public player$!: Observable<PlayerStats>
+
+
 
 }
