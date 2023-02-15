@@ -1,7 +1,13 @@
-<div class="game">
-  <app-dartsboard></app-dartsboard>
-  <app-darts-scores></app-darts-scores>
+<div class="header fully-inflexible icon-menu" >
+  <span [routerLink]="['/snooker', 'scoreboard']" ><img src="/assets/snooker.png" width="32px" alt=""></span>
+  <span [routerLink]="['/darts', 'scoreboard']" ><img src="/assets/darts.png" width="32px" alt=""></span>
 </div>
-<div class="history">
+<div class="main flex-container no-overflow fully-flexible">
+  <div class="game">
+    <app-dartsboard></app-dartsboard>
+    <app-darts-scores></app-darts-scores>
+  </div>
+</div>
+<div class="footer fully-inflexible">
   <app-darts-score-history></app-darts-score-history>
 </div>

@@ -1,14 +1,21 @@
 :host {
   display: flex;
+  flex: 1 1 auto;
   flex-flow: column nowrap;
 }
 
 .game {
   display: flex;
   flex-flow: row nowrap;
+  flex: 1;
 }
 
 .history {
   display: flex;
   flex-flow: row nowrap;
+}
+
+
+.footer {
+  height: 210px;
 }

@@ -2,3 +2,59 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color:#EEE}
+
+html, body, .full-screen {
+  margin: 0;
+  height: 100%;
+}
+
+.full-screen {
+  display:  flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.header {
+  &.icon-menu {
+    span {
+      margin: 2px 10px;
+      cursor: pointer;
+    }
+  }
+}
+
+.fully-inflexible {
+  flex:  0 0 auto;
+}
+
+.fully-flexible {
+  flex:  1 1 auto;
+}
+
+.no-overflow {
+  overflow: hidden;
+}
+
+.full-screen .footer {
+  height: 50px;
+}
+
+.flex-container {
+  display: flex;
+}
+
+.flex-column {
+  flex-flow: column nowrap;
+}
+
+
+.full-screen .main .right{
+  width: 200px;
+
+}
+
+.scrollable {
+  overflow: auto;
+}
+
+

@@ -1,5 +1,5 @@
 <div *ngIf="dartPlayer$ | async as dartPlayer">
-
+  <div class="name">{{dartPlayer.name}}</div>
   <div *ngFor="let score of dartPlayer.score ">
     <span class="score">{{score.newScore}}</span>
     <span class="dart" *ngFor="let d of score.darts">{{d}}</span>

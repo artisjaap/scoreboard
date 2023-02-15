@@ -1,9 +1,23 @@
+
 :host {
   display: flex;
   flex-flow: column;
+  flex: 1 1 auto;
 }
 
+.add-points{
+  display: flex;
+  border-bottom: 2px solid dodgerblue;
+
+  .next-points{
+    display: flex;
+    flex: 1 1 auto;
+    margin: 2px 0 5px;
+    justify-content: center;
+  }
+}
 .players {
+
   display: flex;
   flex-flow: row;
 }
