@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./darts-scoreboard.component.scss']
 })
 export class DartsScoreboardComponent {
-
+  public inputMode = 'BOARD';
 }

@@ -17,6 +17,8 @@ export interface TableStats {
   pink: number;
   black: number;
   maxPointsLeft: number;
+  extraYellow: boolean;
+
 }
 
 export enum ScoreboardMode {

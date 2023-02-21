@@ -4,6 +4,7 @@ import {Observable} from 'rxjs';
 import {Store} from '@ngrx/store';
 import {getMode} from '../../store/snooker-scoreboard-the-scoreboard.selector';
 import {TheScoreboardState} from '../../store/snooker-scoreboard-the-scoreboard.reducer';
+import * as scoreboardActions from '../../store/snooker-scoreboard-the-scoreboard.actions';
 
 @Component({
   selector: 'app-player',
@@ -16,9 +17,15 @@ export class SnookerPlayerComponent {
   public player$!: Observable<PlayerStats>
 
   public gameMode$: Observable<ScoreboardMode>;
-  constructor(private store:Store<TheScoreboardState>) {
-    this.gameMode$ = this.store.select(getMode);
+  constructor(private state:Store<TheScoreboardState>) {
+    this.gameMode$ = this.state.select(getMode);
   }
 
   protected readonly ScoreboardMode = ScoreboardMode;
+
+  switchPlayer() {
+
+      this.state.dispatch(scoreboardActions.turnPlayer());
+
+  }
 }

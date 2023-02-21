@@ -4,7 +4,16 @@
 </div>
 <div class="main flex-container no-overflow fully-flexible">
   <div class="game">
-    <app-dartsboard></app-dartsboard>
+    <div class="game-input">
+      <div class="game-input-selection">
+        <button mat-stroked-button (click)="inputMode = 'TABLE'">table</button>
+        <button mat-stroked-button (click)="inputMode = 'BOARD'">board</button>
+
+      </div>
+      <app-dartsboard *ngIf="inputMode === 'BOARD'"></app-dartsboard>
+      <app-dartsboard-table *ngIf="inputMode === 'TABLE'"></app-dartsboard-table>
+
+    </div>
     <app-darts-scores></app-darts-scores>
   </div>
 </div>

@@ -1,4 +1,4 @@
-<div class="player" *ngIf="player$ | async as player" >
+<div class="player" *ngIf="player$ | async as player" (click)="switchPlayer()">
   <div class="name"  [ngClass]="{'current':player.currentPlayer}">{{player.name}}</div>
   <div class="score"  [ngClass]="{ 'fault': (gameMode$|async) === ScoreboardMode.FAULT}">{{player.score}}</div>
   <div class="break">{{player.break}}</div>

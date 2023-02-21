@@ -9,6 +9,7 @@ import { DartsScoreboardComponent } from './components/darts-scoreboard/darts-sc
 import { DartsScoresComponent } from './components/darts-scores/darts-scores.component';
 import { DartsScoreHistoryComponent } from './components/darts-score-history/darts-score-history.component';
 import { DartsPlayerScoreComponent } from './components/darts-player-score/darts-player-score.component';
+import { DartsboardTableComponent } from './components/dartsboard-table/dartsboard-table.component';
 
 
 
@@ -20,6 +21,7 @@ import { DartsPlayerScoreComponent } from './components/darts-player-score/darts
     DartsScoresComponent,
     DartsScoreHistoryComponent,
     DartsPlayerScoreComponent,
+    DartsboardTableComponent,
 
   ],
   imports: [

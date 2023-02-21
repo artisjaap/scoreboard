@@ -13,10 +13,12 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
 import {SnookerModule} from './snooker/snooker.module';
 import {DartsModule} from './darts/darts.module';
+import { ScoresDashboardComponent } from './scores-dashboard/scores-dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    ScoresDashboardComponent,
 
   ],
   imports: [

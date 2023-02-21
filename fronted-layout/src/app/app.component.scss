@@ -1,0 +1,30 @@
+.full-screen {
+  margin: 0;
+  height: 100%;
+
+  display: flex;
+  flex-flow: column nowrap;
+  flex: 1 1 auto;
+  .fully-flexible {
+    display: flex;
+    flex: 1 1 auto;
+  }
+}
+
+
+.full-screen {
+  background-color: #FEE;
+  overflow: hidden;
+
+  &::before {
+    content: 'full-screen';
+    position: absolute;
+    font-weight: bold;
+    background-color: black;
+    color:  white;
+    padding: 1px 5px;
+    font-size: 9px;
+    border-radius: 5px;
+
+  }
+}

@@ -58,7 +58,8 @@ export const theScoreboardInitialState: TheScoreboardState = {
     blue: 1,
     pink: 1,
     black: 1,
-    maxPointsLeft: 147
+    maxPointsLeft: 147,
+    extraYellow: false
   },
 };
 
@@ -113,18 +114,18 @@ function updateScoreForPlayer(mode: ScoreboardMode, player: PlayerStats, points:
   }
 }
 
-
 function updateTableStats(mode: ScoreboardMode, tableStats: TableStats, color: BallColor) {
    if(mode === ScoreboardMode.NORMAL) {
     let updatedTableStats = {
       ...tableStats,
       red: color === BallColor.RED && tableStats.red > 0 ? tableStats.red - 1: tableStats.red,
-      yellow: color === BallColor.YELLOW && tableStats.red === 0 ? 0: 1,
-      green: color === BallColor.GREEN && tableStats.yellow === 0 ? 0: 1,
-      brown: color === BallColor.BROWN && tableStats.green === 0 ? 0: 1,
-      blue: color === BallColor.BLUE && tableStats.brown === 0 ? 0: 1,
-      pink: color === BallColor.PINK && tableStats.blue === 0 ? 0: 1,
-      black: color === BallColor.BLACK && tableStats.pink === 0 ? 0: 1
+      yellow: color === BallColor.YELLOW?tableStats.red === 0 && tableStats.extraYellow?1: 0: tableStats.yellow,
+      green: color === BallColor.GREEN?tableStats.yellow === 0 ? 0: 1:tableStats.green,
+      brown: color === BallColor.BROWN?tableStats.green === 0 ? 0: 1:tableStats.brown,
+      blue: color === BallColor.BLUE?tableStats.brown === 0 ? 0: 1:tableStats.blue,
+      pink: color === BallColor.PINK?tableStats.blue === 0 ? 0: 1:tableStats.pink,
+      black: color === BallColor.BLACK?tableStats.pink === 0 ? 0: 1:tableStats.black,
+      extraYellow: color === BallColor.RED && tableStats.red === 1
     };
 
     return {...updatedTableStats, maxPointsLeft: calculatePointsLeft(updatedTableStats)};

@@ -3,7 +3,7 @@ import {TheDartsScoreboardState} from '../../store/darts-scoreboard-the-scoreboa
 import {Store} from '@ngrx/store';
 import {getCurrentDarts, getPlayer1, getPlayer2} from '../../store/darts-scoreboard-the-scoreboard.selector';
 import {Observable} from 'rxjs';
-import {commitScore} from '../../store/darts-scoreboard-the-scoreboard.actions';
+import {clearCurrentDartSet, commitScore} from '../../store/darts-scoreboard-the-scoreboard.actions';
 import {DartsPlayer} from '../../model/darts-model';
 
 @Component({
@@ -27,4 +27,7 @@ export class DartsScoresComponent {
     this.state.dispatch(commitScore());
   }
 
+  removeCurrentDarts() {
+    this.state.dispatch(clearCurrentDartSet());
+  }
 }
